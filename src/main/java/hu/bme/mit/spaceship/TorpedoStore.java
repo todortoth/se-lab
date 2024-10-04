@@ -13,7 +13,7 @@ public class TorpedoStore {
   private double FAILURE_RATE = 0.0; //NOSONAR
 
   private int torpedoCount = 0;
-
+  // A randomgenerator igy mar biztosan jol fog mukodni
   private Random generator = new Random();
 
   public TorpedoStore(int numberOfTorpedos){
@@ -32,6 +32,7 @@ public class TorpedoStore {
 
   public boolean fire(int numberOfTorpedos){
     if(numberOfTorpedos < 1 || numberOfTorpedos > this.torpedoCount){
+      // A kivetelt igy mar el is dobja
       throw new IllegalArgumentException("numberOfTorpedos");
     }
 
@@ -41,7 +42,7 @@ public class TorpedoStore {
     double r = generator.nextDouble();
 
     if (r >= FAILURE_RATE) {
-      // successful firing
+      // successful firing -> valamint a mennyiseg is helyes marad
       this.torpedoCount -= numberOfTorpedos;
       success = true;
     } else {
